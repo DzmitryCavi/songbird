@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import birdsData from '../../data/birds'
+import './list.sass'
 
 const List = (props) => {
     const {page} = props;

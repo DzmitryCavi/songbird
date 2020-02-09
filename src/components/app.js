@@ -15,7 +15,7 @@ class App extends Component {
       random: null,
       score: 0,
       step: 0,
-      isSelected: false,
+      isCorrectAnswerSelected: false,
       isWin: false
     };
     this.nextPage = this.nextPage.bind(this);
@@ -26,14 +26,14 @@ class App extends Component {
   }
 
   render() {
-    const {score, id, page, random, step, isSelected, isWin} = this.state;
+    const {score, id, page, random, step, isCorrectAnswerSelected, isWin} = this.state;
     return (
       <div className = 'container'>
        <Header score = {score} page = {page}/>
        <Question/>
        <Card/>
        <List page = {page}/>
-       <Btn onClick = {this.nextPage}/>
+       <Btn onClick = {this.nextPage} isCorrectAnswerSelected = {isCorrectAnswerSelected}/>
       </div>
     );
   }

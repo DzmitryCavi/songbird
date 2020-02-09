@@ -1,4 +1,5 @@
 .header 
+    grid-area: header
     ul
         flex-wrap: wrap
         padding: 0
@@ -12,11 +13,30 @@
             display: inline
             text-align: center
             a 
-                background-color: #008966
+                background-color: #9F3ED5
                 position: relative
                 display: block
                 padding: 0.5rem 0.75rem
                 margin-left: 0
                 line-height: 1.25
             .active
-                background-color: #00bc8c
+                background-color: #AD66D5
+    .top-panel
+        display: flex
+        justify-content: space-between
+        align-items: center
+        .score 
+            float: right
+            margin-top: 0
+            margin-bottom: 0.5rem
+            font-weight: 500
+            line-height: 1.2
+            font-size: 1.2rem
+        .logo
+            display: inline-block
+            height: 55px
+            width: 200px
+            background-image: url('/assets/icons/logo.png')
+            background-size: contain
+            background-repeat: no-repeat
+

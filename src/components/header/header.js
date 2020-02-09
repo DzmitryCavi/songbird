@@ -7,7 +7,7 @@ const Header = (props) => {
     return (
         <div className = 'header'>
             <div className = 'top-panel'>
-                <span className = 'logo'>logo </span> 
+                <span className = 'logo'></span> 
                 <span className = 'score'>Score: {score}</span>
             </div>
             <ul>
