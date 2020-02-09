@@ -1,0 +1,26 @@
+body 
+    background-color: #222
+    color: white
+.container
+    width: 80%
+    margin: auto
+    display: grid
+    grid-template-rows: auto
+    grid-template-columns: 1fr 1fr
+    grid-template-areas: 'header header' 'question question' 'list card' 'btn btn'
+    grid-gap: 10px
+.header
+    grid-area: header
+.question
+    grid-area: question
+    border: 1px solid #444
+.list
+    grid-area: list
+    border: 1px solid #444
+.card
+    grid-area: card
+    border: 1px solid #444
+.btn
+    grid-area: btn
+    border: 1px solid #444
+    text-align: center
