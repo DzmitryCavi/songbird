@@ -1,7 +1,33 @@
 .question
     padding: 5px
-    background: #5F2580
+    background: #48036F
     grid-area: question
     border: 1px solid #5F2580
     border-radius: 0.25rem
-  
+    display: flex
+    align-items: center
+    @media (max-width: 500px)
+        flex-wrap: wrap
+    img, .bird-name 
+        @media (max-width: 500px)
+            margin: auto
+            text-align: center
+            padding-left: 0 !important
+    .bird-info
+        width: 100%
+    .bird-name
+        padding-left: 40px
+        font-size: 1.5rem
+.react-h5-audio-player
+    border: none !important
+    .flex
+        background: #48036F !important
+        box-shadow: none !important
+    .toggle-play-button
+        background: #9f3ed5 !important
+    .pause-icon
+        box-shadow: #9f3ed5 7px 0px 0px 0px inset !important
+    .indicator
+        background: #9f3ed5 !important
+    .volumn
+        border-bottom: 15px solid #9f3ed5 !important

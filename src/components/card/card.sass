@@ -1,6 +1,28 @@
 .card
     padding: 5px
-    background: #5F2580
+    background: #48036F
     grid-area: card
     border: 1px solid #5F2580
     border-radius: 0.25rem
+    .card-information
+        display: grid
+        grid-template-rows: auto
+        grid-template-columns: 1fr 1fr
+        grid-template-areas: 'img ru' 'img en' 'img player' 'descrition descrition'
+        align-items: center
+        @media (max-width: 1000px)
+            grid-template-areas: 'img ru' 'img en' 'player player' 'descrition descrition'
+        img 
+            grid-area: img
+            justify-self: center
+        .bird-name-ru
+            font-size: 1.3rem
+            padding-left: 10px
+            grid-area: ru
+        .bird-name-en
+            padding-left: 10px
+            grid-area: en
+        .react-h5-audio-player
+            grid-area: player
+        .descrition
+            grid-area: descrition

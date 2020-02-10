@@ -1,5 +1,5 @@
 body 
-    background-color: #48036F
+    background-color: #222
     color: #f5edf5
 .container
     width: 80%
@@ -9,7 +9,8 @@ body
     grid-template-columns: 1fr 1fr
     grid-template-areas: 'header header' 'question question' 'list card' 'btn btn'
     grid-gap: 10px
-
+    @media (max-width: 500px)
+        grid-template-areas: 'header header' 'question question' 'list list' 'card card' 'btn btn'
 img 
     width: 200px
     height: 180px

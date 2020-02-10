@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import birdsData from '../../data/birds'
+import AudioPlayer from "react-h5-audio-player";
 import './question.sass'
 
 const Question = (props) => {
@@ -11,8 +12,10 @@ const Question = (props) => {
     return (
         <div className = 'question'>
             <img src = {isWin ? imgUrl : 'assets/icons/bird.png'}></img>
+            <div className = 'bird-info'>
             <div className = 'bird-name'>{isWin ? bird : '******'}</div>
-            <audio src = {audioUrl} controls></audio>  
+            <AudioPlayer src = {audioUrl}/>
+            </div>
         </div>
     );
 }

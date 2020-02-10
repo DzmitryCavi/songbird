@@ -26,6 +26,7 @@ class App extends Component {
     const maxPoints = 5;
     if(id === this.state.random && !this.state.isWin){this.setState({isWin: true, score: this.state.score += maxPoints - this.state.step})}
     this.setState({isSelected: true, id: id, step: this.state.step += 1});
+    
   }
 
   getRandomInt(){
@@ -61,7 +62,7 @@ class App extends Component {
        <Header score = {score} page = {page}/>
        <Question page = {page} random = {random} isWin = {isWin}/>
        <Card id = {id} isSelected = {isSelected} page = {page}/>
-       <List page = {page} onItemSelected = {this.onItemSelected}/>
+       <List page = {page} onItemSelected = {this.onItemSelected} isWin = {isWin} random = {random}/>
        {isWin ? (<div className = 'btn' onClick = {page === 5 ? this.newGame : this.nextPage}>{page === 5 ? 'Начать новую игру' : 'Слудующий вопрос'}</div>) : (<div className = 'btn disable'>Слудующий вопрос</div>)}
       </div>
     );
