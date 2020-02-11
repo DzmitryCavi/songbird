@@ -15,7 +15,7 @@ class App extends Component {
       score: 0,
       step: 0,
       isSelected: false,
-      isWin: false
+      isWin: false,
     };
     this.nextPage = this.nextPage.bind(this);
     this.onItemSelected = this.onItemSelected.bind(this);
@@ -24,7 +24,19 @@ class App extends Component {
 
   onItemSelected(id){
     const maxPoints = 5;
-    if(id === this.state.random && !this.state.isWin){this.setState({isWin: true, score: this.state.score += maxPoints - this.state.step})}
+    const audio = new Audio;
+    const srcTrue = 'https://freesound.org/data/previews/342/342210_6130807-lq.mp3';
+    const srcFalse = 'https://freesound.org/data/previews/483/483598_6436863-lq.mp3';
+    audio.preload;
+    if(id === this.state.random && !this.state.isWin){ 
+      this.setState({isWin: true, score: this.state.score += maxPoints - this.state.step},()=>{
+        audio.src = srcTrue;
+        audio.play();
+      });
+    } else if(!this.state.isWin) {
+        audio.src = srcFalse;
+        audio.play();
+    }
     this.setState({isSelected: true, id: id, step: this.state.step += 1});
     
   }
@@ -62,8 +74,18 @@ class App extends Component {
         {isWin && page === 5 ? (<div className = "win">
             <Header score = {score} page = {page}/>
             <div className = 'win-massage'></div>
-            <h1>Поздравляем !</h1>
-            <h2>Ты набрал {score} из 30</h2>
+            {
+              score !== 30 ? (
+                <div>
+                  <h1>Поздравляем !</h1>
+                  <h2>Ты набрал {score} из 30</h2>
+                </div>) : ( 
+                <div>
+                  <h1>Лучший результат !</h1>
+                  <img className = 'win-image' src = 'assets/icons/win.jpg'></img>
+                </div>
+              )
+            }
             <div className = 'btn' onClick = {this.newGame}>Попробовать снова</div>
           </div>) 
         : (<div className = 'container'>
