@@ -16,10 +16,12 @@ class App extends Component {
       step: 0,
       isSelected: false,
       isWin: false,
+      isGameComplited: false
     };
     this.nextPage = this.nextPage.bind(this);
     this.onItemSelected = this.onItemSelected.bind(this);
     this.newGame = this.newGame.bind(this);
+    this.completeTheGame = this.completeTheGame.bind(this);
   }
 
   onItemSelected(id){
@@ -39,6 +41,10 @@ class App extends Component {
     }
     this.setState({isSelected: true, id: id, step: this.state.step += 1});
     
+  }
+
+  completeTheGame(){
+    this.setState({isGameComplited: true});
   }
 
   getRandomInt(){
@@ -63,15 +69,16 @@ class App extends Component {
       score: 0,
       step: 0,
       isSelected: false,
-      isWin: false
+      isWin: false,
+      isGameComplited: false
     });
   }
 
   render() {
-    const {score, id, page, random, isSelected, isWin} = this.state;
+    const {isGameComplited ,score, id, page, random, isSelected, isWin} = this.state;
     return (
       <div className = 'wrapper'>
-        {isWin && page === 5 ? (<div className = "win">
+        {isGameComplited ? (<div className = "win">
             <Header score = {score} page = {page}/>
             <div className = 'win-massage'></div>
             {
@@ -93,7 +100,7 @@ class App extends Component {
             <Question page = {page} random = {random} isWin = {isWin}/>
             <Card id = {id} isSelected = {isSelected} page = {page}/>
             <List page = {page} onItemSelected = {this.onItemSelected} isWin = {isWin} random = {random}/>
-            {isWin ? (<div className = 'btn' onClick = {page === 5 ? this.newGame : this.nextPage}>{page === 5 ? 'Начать новую игру' : 'Слудующий вопрос'}</div>) : (<div className = 'btn disable'>Слудующий вопрос</div>)}
+            {isWin ? (<div className = 'btn' onClick = {page === 5 ? this.completeTheGame : this.nextPage}>{page === 5 ? 'Завершить' : 'Слудующий вопрос'}</div>) : (<div className = 'btn disable'>Слудующий вопрос</div>)}
           </div>)}
         
       </div>
