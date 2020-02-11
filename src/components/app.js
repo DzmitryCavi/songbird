@@ -3,7 +3,6 @@ import Header from './header/header';
 import Question from './question/question';
 import Card from './card/card';
 import List from './list/list';
-import Btn from './button/button';
 import '../styles/app.sass'
 
 class App extends Component {
