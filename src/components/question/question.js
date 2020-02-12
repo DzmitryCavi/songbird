@@ -14,7 +14,7 @@ const Question = (props) => {
             <img src = {isWin ? imgUrl : 'assets/icons/bird.png'}></img>
             <div className = 'bird-info'>
             <div className = 'bird-name'>{isWin ? bird : '******'}</div>
-            <AudioPlayer src = {audioUrl}/>
+            <AudioPlayer src = {audioUrl} autoPlay = {true}/>
             </div>
         </div>
     );

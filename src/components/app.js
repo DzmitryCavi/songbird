@@ -58,12 +58,22 @@ class App extends Component {
   render() {
     const {score, id, page, random, isSelected, isWin} = this.state;
     return (
-      <div className = 'container'>
-       <Header score = {score} page = {page}/>
-       <Question page = {page} random = {random} isWin = {isWin}/>
-       <Card id = {id} isSelected = {isSelected} page = {page}/>
-       <List page = {page} onItemSelected = {this.onItemSelected} isWin = {isWin} random = {random}/>
-       {isWin ? (<div className = 'btn' onClick = {page === 5 ? this.newGame : this.nextPage}>{page === 5 ? 'Начать новую игру' : 'Слудующий вопрос'}</div>) : (<div className = 'btn disable'>Слудующий вопрос</div>)}
+      <div className = 'wrapper'>
+        {isWin && page === 5 ? (<div className = "win">
+            <Header score = {score} page = {page}/>
+            <div className = 'win-massage'></div>
+            <h1>Поздравляем !</h1>
+            <h2>Ты набрал {score} из 30</h2>
+            <div className = 'btn' onClick = {this.newGame}>Попробовать снова</div>
+          </div>) 
+        : (<div className = 'container'>
+            <Header score = {score} page = {page}/>
+            <Question page = {page} random = {random} isWin = {isWin}/>
+            <Card id = {id} isSelected = {isSelected} page = {page}/>
+            <List page = {page} onItemSelected = {this.onItemSelected} isWin = {isWin} random = {random}/>
+            {isWin ? (<div className = 'btn' onClick = {page === 5 ? this.newGame : this.nextPage}>{page === 5 ? 'Начать новую игру' : 'Слудующий вопрос'}</div>) : (<div className = 'btn disable'>Слудующий вопрос</div>)}
+          </div>)}
+        
       </div>
     );
   }
