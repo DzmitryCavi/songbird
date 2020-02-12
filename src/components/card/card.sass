@@ -12,6 +12,8 @@
         align-items: center
         @media (max-width: 1000px)
             grid-template-areas: 'img ru' 'img en' 'player player' 'descrition descrition'
+        @media (max-width: 500px)
+            grid-template-areas: 'img img' 'ru ru' 'en en' 'player player' 'descrition descrition'
         img 
             grid-area: img
             justify-self: center
